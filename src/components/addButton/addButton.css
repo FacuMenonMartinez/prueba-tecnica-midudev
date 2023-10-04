@@ -1,0 +1,19 @@
+.add-button{
+    position: absolute;
+    right: -1vw;
+    top: -2vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: black;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50vw;
+    outline: none;
+    border: none;
+}
+
+.material-symbols-outlined{
+    color: white;
+    text-align: center;
+}

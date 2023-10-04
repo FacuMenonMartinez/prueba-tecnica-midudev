@@ -1,0 +1,20 @@
+.section-books-container{
+    max-width: 70%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 3vh;
+}
+
+.books-container-title{
+    font-size: 2rem;
+    color: azure;
+    text-align: center;
+    margin: 0;
+}
+
+.books-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
