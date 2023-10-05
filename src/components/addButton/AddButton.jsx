@@ -5,9 +5,10 @@ function AddButton ({id, addFunction}){
     const handleClick=()=>{
         addFunction(id);
     }
+    
 
     return(
-        <button className="add-button" onClick={handleClick}><span class="material-symbols-outlined">add</span></button>
+        <button className="add-button" onClick={handleClick}><span className="material-symbols-outlined">add</span></button>
     )
 }
 

@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 
 import BookItem from "../BookItem/BookItem";
 import "./availableBooksContainer.css";
-function AvailableBooksContainer({bookArray}) {
+
+function AvailableBooksContainer({ bookArray, addFunction }) {
 
     return (
         <section className="section-books-container">
@@ -12,7 +13,7 @@ function AvailableBooksContainer({bookArray}) {
                     Fijarse desestructurar el objeto para que quede un codigo mas prolijo */}
                 {bookArray.length > 0
                     ? (bookArray.map(item => {
-                        return <BookItem title={item.book.title} cover={item.book.cover} pages={item.book.pages} genre={item.book.genre} author={item.book.author.name} key={item.book.ISBN} />
+                        return <BookItem container={'available'} title={item.book.title} cover={item.book.cover} pages={item.book.pages} genre={item.book.genre} author={item.book.author.name} key={item.book.ISBN} addFunction={addFunction} />
                     }))
                     : <h3>Libros no encontrados</h3>
 
