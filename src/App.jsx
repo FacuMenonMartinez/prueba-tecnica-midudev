@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
 import AvailableBooksContainer from "./components/availableBooksContainer/AvailableBooksContainer";
 import ReadingListContainer from "./components/readingListContainer/ReadingListContainer";
+import GenreFilter from "./components/Filters/GenreFilter";
+import PagesFilter from "./components/Filters/PagesFilter";
+
 
 function App() {
 
   // Creo un estado donde guardo los libros traidos del JSON
+  // es la que voy a usar para el renderizado de disponibles
   const [listBooks, setListBooks] = useState([]);
 
   // Creo el estado donde guardo la lista de lectura
   const [readingList, setReadingList] = useState([]);
+
+  const [filteredGenre, setFilteredGenre] = useState('');
+
 
   // Hago llamada al JSON dentro de useEffect para que no se renderice constatemente el comp. 
   useEffect(() => {
@@ -16,9 +23,24 @@ function App() {
       .then(res => res.json())
       .then(data => {
         console.log(data.library)
-        setListBooks(data.library);
+
+        // Uso el filtro aca para que, en caso que quiera, el cliente puede sacar todos los filtros
+        if (filteredGenre !== '') {
+          const filteredBooks = data.library.filter(item => item.book.genre === filteredGenre);
+          setListBooks(filteredBooks);
+        } else {
+          setListBooks(data.library);
+        }
+
       })
-  }, []);
+  }, [filteredGenre]);
+
+  const changeGenreFilter = (genre) => {
+    setFilteredGenre(genre)
+  }
+
+
+
 
 
   // Esta función se ejecuta en el componente addButton
@@ -63,6 +85,8 @@ function App() {
   return (
     <div>
       <h1>Library's Name</h1>
+      <PagesFilter/>
+      <GenreFilter changeGenreFilter={changeGenreFilter} />
       <AvailableBooksContainer bookArray={listBooks} addFunction={addFunction} />
       <ReadingListContainer booksArray={readingList} removeFunction={removeFunction} />
     </div>
