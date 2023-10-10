@@ -3,6 +3,7 @@ function GenreFilter({changeGenreFilter}){
 
     const handleChange= (e)=>{
         changeGenreFilter(e.target.value);
+        
     }  
 
 
