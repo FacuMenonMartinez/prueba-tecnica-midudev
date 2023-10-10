@@ -9,7 +9,7 @@ function GenreFilter({changeGenreFilter}){
     return(
         <form>
             <select name="genreFilter" onChange={handleChange}>
-                <option value="">Filtrar Libros</option>
+                <option value="">Todos</option>
                 <option value="Ciencia ficción">Ciencia ficción</option>
                 <option value="Fantasía">Fantasía</option>
                 <option value="Terror">Terror</option>
