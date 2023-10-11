@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+h1{
+    padding-left: 5vw ;
+    padding-top: 3vh;
+    text-align: left;
+}
+
+.filter-container{
+    width: 50%;
+    height: 6vh;
+    margin: 2vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clear-filters-button{
+    background-color: rgb(32, 32, 32);
+    color: azure;
+    padding: 1vh;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.clear-filters-button:active{
+    background-color: rgb(59, 59, 59);
+    outline: 1px solid black;
+
+}

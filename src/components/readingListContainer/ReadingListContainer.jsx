@@ -7,6 +7,7 @@ function ReadingListContainer ({booksArray, removeFunction}){
     return(
         <section className="section-books-container">
             <h2 className="books-container-title">Books Container</h2>
+            <p>{booksArray.length} books on list</p>
             <div className="books-container">
                 {/* Hago map para renderizar los libros en un componente.
                     Fijarse desestructurar el objeto para que quede un codigo mas prolijo */}

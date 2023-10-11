@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./pagesFilter.css";
 
 function PagesFilter({changePages}) {
 
@@ -9,9 +10,9 @@ function PagesFilter({changePages}) {
        changePages(e.target.value);
     }
 
-    return (<form>
-        <input onChange={handleChange} type="range" min={200} max={1200} step={100} list="tickmarks" />
-        <label>Más de {pages} páginas</label>
+    return (<form className="pages-filter-container">
+        <input className="pages-range" onChange={handleChange} type="range" min={200} max={1200} step={100} list="tickmarks" />
+        <label className="pages-label">Más de {pages} páginas</label>
     </form>)
 }
 

@@ -4,6 +4,8 @@ import ReadingListContainer from "./components/readingListContainer/ReadingListC
 import GenreFilter from "./components/Filters/GenreFilter";
 import PagesFilter from "./components/Filters/PagesFilter";
 
+import "./App.css";
+
 
 function App() {
 
@@ -30,6 +32,7 @@ function App() {
       .then(data => {
         // console.log(data.library);
         setListBooks(data.library);
+
 
         if (!storageReadingList) {
           setAvailableBooks(data.library)
@@ -137,10 +140,10 @@ function App() {
   return (
     <div>
       <h1>Library's Name</h1>
-      <section>
+      <section className="filter-container">
         <PagesFilter changePages={changePagesFilter} />
         <GenreFilter changeGenreFilter={changeGenreFilter} />
-        <button onClick={cleanFilters}>Limpiar filtros</button>
+        <button className="clear-filters-button" onClick={cleanFilters}>Limpiar filtros</button>
       </section>
       <AvailableBooksContainer bookArray={availableBooks} addFunction={addFunction} />
       <ReadingListContainer booksArray={readingList} removeFunction={removeFunction} />

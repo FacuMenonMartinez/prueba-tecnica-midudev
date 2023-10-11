@@ -11,6 +11,7 @@
     border-radius: 50vw;
     outline: none;
     border: none;
+    cursor: pointer;
 }
 
 .material-symbols-outlined{
