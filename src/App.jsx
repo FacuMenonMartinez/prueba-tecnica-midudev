@@ -7,18 +7,20 @@ import PagesFilter from "./components/Filters/PagesFilter";
 
 function App() {
 
-  // Creo un estado donde guardo los libros traidos del JSON
-  // es la que voy a usar para el renderizado de disponibles
+  // Creo los estados que necesito
+  // Datos del JSON
   const [listBooks, setListBooks] = useState([]);
 
+  // Libros disponibles
   const [availableBooks, setAvailableBooks] = useState([]);
 
-  // Creo el estado donde guardo la lista de lectura
+  // Lista de lecturas
   const [readingList, setReadingList] = useState([]);
 
+  // Filtros
   const [filteredGenre, setFilteredGenre] = useState('');
-
   const [filteredPages, setFilteredPages] = useState(0);
+
 
 
   // Hago llamada al JSON dentro de useEffect para que no se renderice constatemente el comp. 
@@ -28,9 +30,29 @@ function App() {
       .then(data => {
         // console.log(data.library);
         setListBooks(data.library);
-        setAvailableBooks(data.library);
+
+        if (!storageReadingList) {
+          setAvailableBooks(data.library)
+        } else {
+          setReadingList(storageReadingList);
+          const refreshAvailableBooks = data.library.filter(item => {
+            return !storageReadingList.some(itemStorage => itemStorage.book.title === item.book.title);
+          })
+          console.log(refreshAvailableBooks)
+          setAvailableBooks(refreshAvailableBooks);
+        }
       })
+
   }, []);
+
+  // STORAGE
+  const storageReadingList = JSON.parse(localStorage.getItem('Reading List'));
+
+  // Seteo los disponibles y la lista de lectura en el storage
+  if (!storageReadingList) {
+    localStorage.setItem('Reading List', JSON.stringify(readingList));
+  }
+  localStorage.setItem('Available List', JSON.stringify(availableBooks));
 
 
   // Funciones Callback de los filtros
@@ -45,17 +67,28 @@ function App() {
   // Funcionamiento de los filtros
   useEffect(() => {
 
-    if (filteredPages > 200) {
+    if (filteredPages > 200 && readingList.length < 1) {
       const filteredBooksByPages = listBooks.filter(item => item.book.pages >= filteredPages);
       setAvailableBooks(filteredBooksByPages);
-    } else if (filteredGenre !== '') {
+    } else if (filteredGenre !== '' && readingList.length < 1) {
       const filteredBooksByGenre = listBooks.filter(item => item.book.genre === filteredGenre);
+      setAvailableBooks(filteredBooksByGenre);
+    } else if (filteredPages > 200 && readingList.length > 0) {
+      const filteredBooksByPages = availableBooks.filter(item => item.book.pages >= filteredPages);
+      setAvailableBooks(filteredBooksByPages);
+    } else if (filteredGenre !== '' && readingList.length > 0) {
+      const filteredBooksByGenre = availableBooks.filter(item => item.book.genre === filteredGenre);
       setAvailableBooks(filteredBooksByGenre);
     } else {
       setAvailableBooks(listBooks);
     }
 
   }, [filteredGenre, filteredPages]);
+
+  const cleanFilters = () => {
+    setFilteredPages(0);
+    setFilteredGenre('');
+  }
 
 
   // Esta función se ejecuta en el componente addButton
@@ -66,14 +99,17 @@ function App() {
     console.log("Este libro elegiste", readingBook);
 
     // Creo copia del arreglo de readingList y luego lo actualizo con el nuevo libro
-    const actualizatedReadingList = [...readingList];
+    const actualizatedReadingList = [...JSON.parse(localStorage.getItem('Reading List'))];
     actualizatedReadingList.push(readingBook);
+    console.log(actualizatedReadingList);
     setReadingList(actualizatedReadingList);
+    localStorage.setItem('Reading List', JSON.stringify(actualizatedReadingList));
 
     // Actualizo los libros disponibles sacando el que esta en lista de lectura
     const actualizatedList = availableBooks.filter((item) => item.book.title != id);
     console.log("Lista actualizada", actualizatedList);
     setAvailableBooks(actualizatedList);
+    localStorage.setItem('Available List', JSON.stringify(actualizatedList));
 
   }
 
@@ -85,22 +121,27 @@ function App() {
     const removedBook = readingList.find(item => item.book.title === id);
     console.log("Este libro queres remover", removedBook);
 
+    // Actualizo los libros que se mantienen en la lista de lectura
+    const actualizatedReadingList = readingList.filter(item => item.book.title !== id);
+    setReadingList(actualizatedReadingList);
+    localStorage.setItem('Reading List', JSON.stringify(actualizatedReadingList));
+
     // Actualizo los libros que vuelven a la lista de disponibles
     const actualizatedList = [...availableBooks];
     actualizatedList.push(removedBook);
     setAvailableBooks(actualizatedList);
-
-    // Actualizo los libros que se mantienen en la lista de lectura
-    const actualizatedReadingList = readingList.filter(item => item.book.title !== id);
-    setReadingList(actualizatedReadingList);
+    localStorage.setItem('Available List', JSON.stringify(actualizatedList));
 
   }
 
   return (
     <div>
       <h1>Library's Name</h1>
-      <PagesFilter changePages={changePagesFilter} />
-      <GenreFilter changeGenreFilter={changeGenreFilter} />
+      <section>
+        <PagesFilter changePages={changePagesFilter} />
+        <GenreFilter changeGenreFilter={changeGenreFilter} />
+        <button onClick={cleanFilters}>Limpiar filtros</button>
+      </section>
       <AvailableBooksContainer bookArray={availableBooks} addFunction={addFunction} />
       <ReadingListContainer booksArray={readingList} removeFunction={removeFunction} />
     </div>
