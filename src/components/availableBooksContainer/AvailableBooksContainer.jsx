@@ -6,9 +6,9 @@ import "./availableBooksContainer.css";
 function AvailableBooksContainer({ bookArray, addFunction }) {
 
     return (
-        <section className="section-books-container">
-            <h2 className="books-container-title">Available Books</h2>
-            <p>{bookArray.length} books on container</p>
+        <section className="available-books-container">
+            <h2 className="books-container-title">Libros disponibles</h2>
+            <p>{bookArray.length} libros disponibles</p>
             <div className="books-container">
                 {/* Hago map para renderizar los libros en un componente.
                     Fijarse desestructurar el objeto para que quede un codigo mas prolijo */}

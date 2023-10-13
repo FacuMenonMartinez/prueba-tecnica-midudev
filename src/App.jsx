@@ -97,6 +97,8 @@ function App() {
   // Esta función se ejecuta en el componente addButton
   const addFunction = (id) => {
 
+    
+
     // Encuentro el libro que voy a leer por nombre
     const readingBook = availableBooks.find(item => item.book.title === id);
     console.log("Este libro elegiste", readingBook);
@@ -139,14 +141,16 @@ function App() {
 
   return (
     <div>
-      <h1>Library's Name</h1>
+      <h1 className="title">Nombre de la librería</h1>
       <section className="filter-container">
         <PagesFilter changePages={changePagesFilter} />
         <GenreFilter changeGenreFilter={changeGenreFilter} />
         <button className="clear-filters-button" onClick={cleanFilters}>Limpiar filtros</button>
       </section>
-      <AvailableBooksContainer bookArray={availableBooks} addFunction={addFunction} />
-      <ReadingListContainer booksArray={readingList} removeFunction={removeFunction} />
+      <section className="books-container">
+        <AvailableBooksContainer bookArray={availableBooks} addFunction={addFunction} />
+        <ReadingListContainer booksArray={readingList} removeFunction={removeFunction} />
+      </section>
     </div>
 
   )

@@ -1,9 +1,13 @@
 import "./addButton.css";
 
-function AddButton ({id, addFunction}){
+function AddButton ({id, addFunction, changeFade}){
+
 
     const handleClick=()=>{
-        addFunction(id);
+        changeFade('fadeOut');
+        setTimeout(()=>{
+            addFunction(id);;
+           },800) 
     }
     
 

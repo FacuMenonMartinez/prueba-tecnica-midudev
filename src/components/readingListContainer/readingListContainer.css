@@ -1,0 +1,33 @@
+.reading-list-container{
+    width: 37%;
+    overflow: hidden;
+    border-top: 3px solid  var(--grey-color);
+    border-bottom: 3px solid  var(--grey-color);
+    border-right: 1px solid  var(--grey-color);
+    border-left: 5px solid var(--grey-color);
+    border-radius: 20px;
+    padding: 1vh;
+
+}
+
+.reading-list-container > h2{
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2vh;
+}
+
+
+.reading-list-container >.books-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.reading-list-container > .books-container > .book-item{
+    width: 30%;
+    padding: 0.5vh;
+}
+
+
+
+

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./pagesFilter.css";
+import "./filters.css";
 
 function PagesFilter({changePages}) {
 

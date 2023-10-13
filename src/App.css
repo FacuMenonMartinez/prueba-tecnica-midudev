@@ -2,13 +2,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+    color: var(--light-grey-color);
 }
+:root{
+    --black-color: #0F0F0F;
+    --grey-color: #61677A;
+    --light-grey-color: #D8D9DA;
+    --white-color: #FFF6E0;
+}
+
 
 body{
-    background-color: antiquewhite;
+    background-color: var(--black-color);
 }
 
-h1{
+.title{
     padding-left: 5vw ;
     padding-top: 3vh;
     text-align: left;
@@ -20,12 +29,13 @@ h1{
     margin: 2vh;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .clear-filters-button{
-    background-color: rgb(32, 32, 32);
-    color: azure;
+    background-color: var(--grey-color);
+    color: var(--black-color);
+    font-weight: 900;
     padding: 1vh;
     border-radius: 50px;
     outline: none;
@@ -33,7 +43,14 @@ h1{
     cursor: pointer;
 }
 .clear-filters-button:active{
-    background-color: rgb(59, 59, 59);
+    background-color: var(--light-grey-color);
     outline: 1px solid black;
 
+}
+
+.books-container{
+    display: flex;
+    max-width: 98%;
+    margin: 5vh auto;
+    justify-content: space-between;
 }

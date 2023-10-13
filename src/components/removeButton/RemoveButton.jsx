@@ -1,9 +1,12 @@
 import "../addButton/addButton.css";
 
-function RemoveButton ({removeFunction, id}){
+function RemoveButton ({removeFunction,changeFade, id}){
 
-    const handleClick =()=>{
-        removeFunction(id)
+    const handleClick = ()=>{
+        changeFade('fadeOut');
+       setTimeout(()=>{
+        removeFunction(id);
+       },800) 
     }
     
     return(

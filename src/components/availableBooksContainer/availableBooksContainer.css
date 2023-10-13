@@ -1,13 +1,16 @@
-.section-books-container{
-    max-width: 70%;
+.available-books-container{
+    width: 60%;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.5);
+    border-top: 3px solid  var(--grey-color);
+    border-bottom: 3px solid  var(--grey-color);
+    border-left: 1px solid  var(--grey-color);
+    border-right: 5px solid var(--grey-color);
+    border-radius: 20px;
     padding: 3vh;
 }
 
 .books-container-title{
     font-size: 2rem;
-    color: azure;
     text-align: center;
     margin: 0;
 }
