@@ -27,7 +27,7 @@ function App() {
 
   // Hago llamada al JSON dentro de useEffect para que no se renderice constatemente el comp. 
   useEffect(() => {
-    fetch("../../../public/asyncMock/books.json")
+    fetch("/asyncMock/books.json")
       .then(res => res.json())
       .then(data => {
         // console.log(data.library);
