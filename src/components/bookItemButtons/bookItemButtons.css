@@ -1,0 +1,68 @@
+.add-button{
+    position: absolute;
+    right: -1vw;
+    top: -2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grey-color);
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50vw;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.remove-button{
+    position: absolute;
+    right: -1vw;
+    top: -2vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: var(--grey-color);
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50vw;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.material-symbols-outlined{
+    color: var(--black-color);
+    font-size: 1.5rem;
+}
+
+/* RESPONSIVE DESIGNE */
+
+@media (max-width:769px) {
+    .material-symbols-outlined{
+        font-size: 1rem;
+    }
+    
+}
+
+@media(max-width: 425px){
+    .add-button{
+        width: 5vw;
+        height: 5vw;
+    }
+    
+    .remove-button{
+        width: 5vw;
+        height: 5vw;
+    }
+    .material-symbols-outlined{
+        font-size: 1.5rem;
+    }
+
+}
+
+@media(max-width: 325px){
+    .material-symbols-outlined{
+        font-size: 1rem;
+    }
+
+}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import AddButton from "../addButton/AddButton";
-import RemoveButton from "../removeButton/RemoveButton";
+import AddButton from "../bookItemButtons/AddButton";
+import RemoveButton from "../bookItemButtons/RemoveButton";
 
 import "./bookItem.css";
 

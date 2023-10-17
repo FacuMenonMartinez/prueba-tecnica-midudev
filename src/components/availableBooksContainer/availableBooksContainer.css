@@ -1,23 +1,46 @@
-.available-books-container{
+.available-books-container {
     width: 60%;
     overflow: hidden;
-    border-top: 3px solid  var(--grey-color);
-    border-bottom: 3px solid  var(--grey-color);
-    border-left: 1px solid  var(--grey-color);
+    border-top: 3px solid var(--grey-color);
+    border-bottom: 3px solid var(--grey-color);
+    border-left: 1px solid var(--grey-color);
     border-right: 5px solid var(--grey-color);
     border-radius: 20px;
     padding: 3vh;
 }
 
-.books-container-title{
+.books-container-title {
     font-size: 2rem;
     text-align: center;
     margin: 0;
 }
 
-.books-container{
+.books-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
+/* RESPONSIVE */
+@media (max-width: 769px) {
+
+    .available-books-container {
+        width: 55%;
+    }
+
+    .books-container-title {
+        font-size: 1.5rem;
+
+    }
+}
+
+@media(max-width: 425px) {
+    .available-books-container {
+        width: 100%;
+    }
+
+    .books-container {
+        margin-top: 4vh;
+    }
+
+}

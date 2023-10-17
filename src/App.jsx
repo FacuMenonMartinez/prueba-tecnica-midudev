@@ -141,13 +141,13 @@ function App() {
 
   return (
     <div>
-      <h1 className="title">Nombre de la librería</h1>
+      <h1 className="title">Tus lecturas</h1>
       <section className="filter-container">
         <PagesFilter changePages={changePagesFilter} />
         <GenreFilter changeGenreFilter={changeGenreFilter} />
         <button className="clear-filters-button" onClick={cleanFilters}>Limpiar filtros</button>
       </section>
-      <section className="books-container">
+      <section className="books-containers">
         <AvailableBooksContainer bookArray={availableBooks} addFunction={addFunction} />
         <ReadingListContainer booksArray={readingList} removeFunction={removeFunction} />
       </section>

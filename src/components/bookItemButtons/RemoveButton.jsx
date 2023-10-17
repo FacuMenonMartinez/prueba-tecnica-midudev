@@ -1,4 +1,4 @@
-import "../addButton/addButton.css";
+import "./bookItemButtons.css";
 
 function RemoveButton ({removeFunction,changeFade, id}){
 
@@ -10,7 +10,7 @@ function RemoveButton ({removeFunction,changeFade, id}){
     }
     
     return(
-        <button className="add-button" onClick={handleClick}><span className="material-symbols-outlined">remove</span></button>
+        <button className="remove-button" onClick={handleClick}><span className="material-symbols-outlined">remove</span></button>
     )
 }
 

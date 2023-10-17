@@ -63,4 +63,53 @@
 }
 
 
+/* RESPONSIVE DESIGN */
+@media (max-width: 769px){
+    .book-item{
+        width: 30%;
+
+    }
+
+    .book-title{
+        font-size: 0.7rem;
+    }
+
+    .book-facts > p{
+        font-size: 0.6rem;
+        font-weight: 200;
+        margin: 1vh 0;
+    }
+
+
+}
+
+@media(max-width: 425px){
+    .book-item{
+        margin: 2vh 1vw;
+        width: 47%;
+    }
+    .book-title{
+        font-size: 1rem;
+    }
+    .book-facts > p{
+        font-size: 0.8rem;
+        font-weight: 200;
+        margin: 1vh 0;
+    }
+
+}
+
+@media(max-width: 325px){
+
+    .book-title{
+        font-size: 0.6rem;
+    }
+    .book-facts > p{
+        font-size: 0.5rem;
+    }
+
+}
+
+
+
 

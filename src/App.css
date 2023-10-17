@@ -25,9 +25,10 @@ body{
 
 .filter-container{
     width: 50%;
-    height: 6vh;
+    padding: 2vh;
     margin: 2vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
 }
@@ -48,9 +49,36 @@ body{
 
 }
 
-.books-container{
+.books-containers{
     display: flex;
     max-width: 98%;
     margin: 5vh auto;
     justify-content: space-between;
+}
+
+/* RESPONSIVE */
+@media (max-width:425px){
+
+    .title{
+        text-align: center;
+    }
+    .filter-container{
+        width: 98%;
+        margin: 3vh auto;
+        align-items: center;
+    }
+    .books-containers{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin: 3vh auto;
+    }
+}
+
+@media (max-width: 325px){
+    .filter-container{
+        flex-direction: column;
+        height: 25vh;
+    }
+
 }
