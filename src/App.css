@@ -11,6 +11,10 @@
     --light-grey-color: #D8D9DA;
     --white-color: #FFF6E0;
 }
+html{
+    scroll-behavior: smooth;
+
+}
 
 
 body{
@@ -56,6 +60,10 @@ body{
     justify-content: space-between;
 }
 
+.button-to-top{
+    display: none;
+}
+
 /* RESPONSIVE */
 @media (max-width:425px){
 
@@ -72,6 +80,21 @@ body{
         justify-content: space-between;
         flex-direction: column;
         margin: 3vh auto;
+    }
+    .button-to-top{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 5vh;
+        right: 5vw;
+        height: 8vh;
+        width: 8vh;
+        border-radius: 50%;
+        background-color: var(--grey-color);
+        color: var(--light-grey-color);
+        font-size: 2rem;
+        text-decoration: none;
     }
 }
 

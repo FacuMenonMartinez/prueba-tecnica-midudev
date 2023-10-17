@@ -147,10 +147,11 @@ function App() {
         <GenreFilter changeGenreFilter={changeGenreFilter} />
         <button className="clear-filters-button" onClick={cleanFilters}>Limpiar filtros</button>
       </section>
-      <section className="books-containers">
+      <section id="books-container" className="books-containers">
         <AvailableBooksContainer bookArray={availableBooks} addFunction={addFunction} />
         <ReadingListContainer booksArray={readingList} removeFunction={removeFunction} />
       </section>
+      <a className="material-symbols-outlined button-to-top" href="#books-container">arrow_upward</a>
     </div>
 
   )
