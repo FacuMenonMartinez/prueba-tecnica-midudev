@@ -1,13 +1,13 @@
 .add-button{
     position: absolute;
-    right: -0.8vw;
+    right: 0vw;
     top: -2vh;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     background-color: var(--grey-color);
-    width: 1.7vw;
-    height: 1.7vw;
+    width: 2vw;
+    height: 2vw;
     border-radius: 50vw;
     outline: none;
     border: none;
@@ -16,14 +16,14 @@
 
 .remove-button{
     position: absolute;
-    right: -0.8vw;
+    right: -0.5vw;
     top: -2vh;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     background-color: var(--grey-color);
-    width: 1.7vw;
-    height: 1.7vw;
+    width: 1.5vw;
+    height: 1.5vw;
     border-radius: 50vw;
     outline: none;
     border: none;
@@ -46,8 +46,8 @@
 
 @media(max-width: 425px){
     .add-button{
-        width: 5vw;
-        height: 5vw;
+        width: 6vw;
+        height: 6vw;
     }
     
     .remove-button{
