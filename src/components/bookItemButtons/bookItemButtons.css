@@ -1,13 +1,13 @@
 .add-button{
     position: absolute;
-    right: -1vw;
+    right: -0.8vw;
     top: -2vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-content: center;
     background-color: var(--grey-color);
-    width: 2vw;
-    height: 2vw;
+    width: 1.7vw;
+    height: 1.7vw;
     border-radius: 50vw;
     outline: none;
     border: none;
@@ -16,14 +16,14 @@
 
 .remove-button{
     position: absolute;
-    right: -1vw;
+    right: -0.8vw;
     top: -2vh;
     display: flex;
     justify-content: center;
     align-content: center;
     background-color: var(--grey-color);
-    width: 2vw;
-    height: 2vw;
+    width: 1.7vw;
+    height: 1.7vw;
     border-radius: 50vw;
     outline: none;
     border: none;
